@@ -17,21 +17,21 @@ export default function App() {
 
             <View style={styles.optionContainer}> 
             <ScrollView horizontal={true} pagingEnabled={true} style={{marginLeft: spacing.sm, marginRight: spacing.sm}}>
-            <View style={{backgroundColor: 'blue', borderRadius: 10, padding: spacing.sm, height: 400, width: 330, marginRight: 15, marginLeft: 8}}> 
+            <View style={styles.focus}> 
               <TouchableOpacity onPress={()=> console.log('history.push component to FocusTime')}>
-                <Text style={{fontSize: fontSizes.md, fontWeight: 'bold', width: '100%'}}> Focus Time </Text> 
+                <Text style={styles.categories}> Focus Time </Text> 
               </TouchableOpacity>
             </View> 
 
-            <View style={{backgroundColor: 'red', borderRadius: 10, marginBottom: spacing.xxl, padding: spacing.sm, height: 400, width: 330, marginRight: 15}}> 
+            <View style={styles.affirmation}> 
               <TouchableOpacity onPress={()=> console.log('history.push component to Affirmations')}>
-                <Text style={{fontSize: fontSizes.md, fontWeight: 'bold'}}> Affirmation Time </Text> 
+                <Text style={styles.categories}>Affirmation Time</Text> 
               </TouchableOpacity>
             </View> 
         
-            <View style={{backgroundColor: 'green', borderRadius: 10, padding: spacing.sm, height: 400, width: 330, marginRight: 8}}> 
+            <View style={styles.planning}> 
                 <TouchableOpacity onPress={()=> console.log('history.push component to Scheduler')}>
-                  <Text style={{fontSize: fontSizes.md, fontWeight: 'bold'}} > Planning Time </Text> 
+                  <Text style={styles.categories} > Planning Time </Text> 
                 </TouchableOpacity>
             </View> 
             </ScrollView>
@@ -60,8 +60,41 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  options: {
-   
+  categories: {
+    fontSize: fontSizes.xxl, 
+    fontWeight: 'bold'
+  },
+
+  focus: {
+    backgroundColor: 'blue', 
+    borderRadius: 10, 
+    padding: spacing.sm, 
+    height: 400, 
+    width: 330, 
+    marginRight: 15, 
+    marginLeft: 8, 
+    justifyContent: 'flex-end'
+  },
+
+  affirmation: {
+    backgroundColor: 'red', 
+    borderRadius: 10, 
+    marginBottom: spacing.xxl, 
+    padding: spacing.sm, 
+    height: 400, 
+    width: 330, 
+    marginRight: 15,
+    justifyContent: 'flex-end'
+  },
+
+  planning: {
+    backgroundColor: 'green', 
+    borderRadius: 10,
+     padding: spacing.sm, 
+     height: 400, 
+     width: 330, 
+     marginRight: 8,
+     justifyContent: 'flex-end'
   }
 });
 
