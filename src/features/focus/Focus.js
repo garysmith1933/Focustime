@@ -9,14 +9,17 @@ export const Focus = ( { addSubject }) =>  {
   const [subject, setSubject] = useState(null)
   return (
     <View style={styles.container}>
+
       <View style={styles.innerContainer}> 
-        <Text style={styles.title}> What would you like to focus on? </Text> 
+        <Text style={styles.title}>What would you like to focus on? </Text> 
+        
         <View style={styles.inputContainer}>
           <TextInput style={{flex: 1, marginRight: spacing.md}} onSubmitEditing={ ({ nativeEvent }) => {
             setSubject(nativeEvent.text)
-          }  }/>
+          }}/>
           <RoundedButton size={50} title="+" onPress={()=> addSubject(subject)}/>
         </View>
+        
       </View>  
     </View>
   );
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
   title: {
     color: colors.white,
     fontWeight: 'bold',
-    fontSize: fontSizes.lg
+    fontSize: 22
   },
 
   inputContainer: {
