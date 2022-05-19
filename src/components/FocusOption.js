@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { Focus } from './src/features/focus/Focus.js'
-import { FocusHistory } from './src/features/focus/FocusHistory.js'
-import { Timer } from './src/features/timer/Timer.js'
-import {colors} from './src/Utils/colors'
-import {spacing, fontSizes} from './src/Utils/sizes'
+import { Focus } from '../features/focus/Focus.js'
+import { FocusHistory } from '../features/focus/FocusHistory.js'
+import { Timer } from '../features/timer/Timer.js'
+import {colors} from '../Utils/colors'
+import {spacing, fontSizes} from '../Utils/sizes'
 
 const STATUSES = {
   COMPLETE: 1,
   CANCELLED: 2
 }
 
-export default function App() {
+export const Focustime = () => {
 
   const [focusSubject, setFocusSubject] = useState(null);
   const [focusHistory, setFocusHistory] = useState([])
