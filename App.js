@@ -4,8 +4,6 @@ import {colors} from './src/Utils/colors'
 import {spacing, fontSizes} from './src/Utils/sizes'
 import Home from "./src/components/Home";
 
-
-
 export default function App() {
   const image = require('./assets/focus.jpg')
   let screenWidth = Dimensions.get('window').width
