@@ -30,7 +30,7 @@ export const Countdown = ({
 
 
   useEffect(() => {
-    onProgress(timeLeft / minutesToMillis(minutes))
+    onProgress(millis / minutesToMillis(minutes))
   }, [millis])
 
   useEffect(() => {
