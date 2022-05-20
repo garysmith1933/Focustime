@@ -8,6 +8,7 @@ import { ProgressBar } from "react-native-paper"
 import {Timing} from './Timing'
 import {useKeepAwake} from 'expo-keep-awake'
 
+//0.1 is 6 seconds, 0.5 is 30
 const DEFAULT_TIME = 0.5;
 
 export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
@@ -22,7 +23,7 @@ export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
   }
 
   const vibrate = () => {
-        Vibration.vibrate(5000)
+   Vibration.vibrate(5000)
   }
 
   const onEnd = () => {

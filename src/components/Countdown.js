@@ -55,8 +55,6 @@ useEffect(() => {
   return () => clearInterval(interval.current)
 }, [isPaused])
 
-//passing interval to that one function and then clearing it from there?
-
   const minute = Math.floor(millis / 1000 / 60) % 60;
   const seconds = Math.floor(millis / 1000) % 60;
   return (

@@ -18,7 +18,21 @@ export const Focustime = () => {
   const [focusHistory, setFocusHistory] = useState([])
 
   const addFocusHistorySubjectWithStatus = (subject, status) => {
-    setFocusHistory([...focusHistory, {key: String(focusHistory.length + 1), subject, status}])
+    const subjectNames = focusHistory.map(obj => obj.subject)
+
+    if (subjectNames.includes(subject)) {
+        focusHistory.map(sub => {
+          if (sub.subject === subject) {
+            sub.status = status 
+          }
+          return sub
+    }) 
+    saveFocusHistory(focusHistory)
+    
+    } else {
+      setFocusHistory([...focusHistory, {key: String(focusHistory.length + 1), subject, status}])
+    }
+    
   }
   
   const onClear = () => {
@@ -73,7 +87,6 @@ export const Focustime = () => {
         </View>
 
       )}
-      <Text> {focusSubject} </Text>
     </View>
   );
 }

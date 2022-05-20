@@ -4,8 +4,6 @@ import { View, StyleSheet, FlatList, Text, SafeAreaView, TouchableOpacity } from
 import {fontSizes, spacing} from "../../Utils/sizes"
 import { RoundedButton } from "../../components/RoundedButton"
 
-
-
 export const FocusHistory = ({focusHistory, onClear, addSubject}) => {
   const clearHistory = () => {
     onClear();
@@ -29,7 +27,7 @@ export const FocusHistory = ({focusHistory, onClear, addSubject}) => {
       <Text style={styles.title}> Things we've focused on </Text> 
         <FlatList 
         style={{width: '100%', height: '100%'}}
-        contentContainerStyle={{flex: 0.7, alignItems: 'center', backgroundColor:'purple'}}
+        contentContainerStyle={{flex: 0.7, alignItems: 'center'}}
         data={focusHistory}
         renderItem={HistoryItem}
       />

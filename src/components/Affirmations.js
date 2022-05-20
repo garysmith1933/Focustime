@@ -8,7 +8,7 @@ export const Affirmations = () => {
     return (
         <View style={{flex: 1, padding: 32, alignItems: 'center', justifyContent:'center'}}> 
             <Image source={image} style={{width: screenWidth}}/>
-            <Text style={{fontSize: 24, fontWeight: 'bold'}}> Coming This Summer! </Text>
+            <Text style={{fontSize: 24, fontWeight: 'bold'}}>Whoops!</Text>
         </View> 
     )
 }
