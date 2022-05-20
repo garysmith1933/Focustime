@@ -69,10 +69,11 @@ export const Focustime = () => {
       ) : (
         <View style={{flex:1}}>
         <Focus addSubject={setFocusSubject}/>
-        <FocusHistory focusHistory={focusHistory} onClear={onClear}/>
+        <FocusHistory focusHistory={focusHistory} onClear={onClear} addSubject={setFocusSubject}/>
         </View>
 
       )}
+      <Text> {focusSubject} </Text>
     </View>
   );
 }
@@ -80,9 +81,6 @@ export const Focustime = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: spacing.lg, 
-    backgroundColor: "#424874",
-    justifyContent: 'center',
-    alignItems: 'center'
+    backgroundColor: colors.darkBlue
   }
 });

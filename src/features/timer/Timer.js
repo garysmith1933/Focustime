@@ -22,12 +22,7 @@ export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
   }
 
   const vibrate = () => {
-    if(Platform.OS === 'ios') {
-        const interval = setInterval(() => Vibration.vibrate(), 1000)
-        setTimeout( () => clearInterval(interval), 10000);
-    } else {
-        Vibration.vibrate(10000)
-    }
+        Vibration.vibrate(5000)
   }
 
   const onEnd = () => {
@@ -38,10 +33,17 @@ export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
     onTimerEnd()
   }
 
-  const changeTime = (min) => {
-    setMinutes(min)
+  const changeTime = (minutes, title) => {
+
+    if(minutes <= 1 && title === '-') {
+      alert('Error: Minutes cannot be 0')
+      return;
+    }
+   
     setProgress(1)
     setIsStarted(false)
+    title === '+' ? setMinutes(minutes + 0.5) : setMinutes(minutes - 1)
+    
   }
 
   return (
@@ -65,19 +67,19 @@ export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
       </View>
 
       <View style={styles.buttonWrapper}> 
-        <Timing onChangeTime={changeTime} />
+        <Timing onChangeTime={changeTime} minutes={minutes} />
       </View>
 
       <View style={styles.buttonWrapper}>
-        {isStarted ? (
+        {isStarted ? 
           <RoundedButton title="pause" onPress={() => setIsStarted(false)} />
-            ) : (
+             : 
                 <RoundedButton title="start" onPress={() => setIsStarted(true)} />   
-        )}
+        }
       </View>
 
       <View style={styles.clearSubject}>
-         <RoundedButton title="-" size={50} onPress={() => clearSubject()} />   
+         <RoundedButton title="x" size={50} onPress={() => clearSubject()} />   
       </View>
     </View>
   )

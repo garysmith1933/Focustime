@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, Platform, TouchableOpacity, ScrollView, ImageBackground} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
 import {colors} from '../Utils/colors'
 import {spacing, fontSizes} from '../Utils/sizes';
 
 export const Home = ({navigation}) => {
-  const image = require('../../assets/focus.jpg')
   return (
   
       <View style={styles.container}> 
@@ -27,12 +26,7 @@ export const Home = ({navigation}) => {
                 <Text style={styles.categories}>Affirmation Time</Text> 
               </TouchableOpacity>
             </View> 
-        
-            <View style={styles.planning}> 
-                <TouchableOpacity onPress={()=> navigation.navigate("Planner")}>
-                  <Text style={styles.categories} > Planning Time </Text> 
-                </TouchableOpacity>
-            </View> 
+      
             </ScrollView>
           </View>
       </View>

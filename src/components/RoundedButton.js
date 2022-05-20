@@ -28,5 +28,5 @@ const styles = (size) => StyleSheet.create({
       borderColor: colors.white,
       borderWidth: 2
     },
-    text: {color: colors.white, fontSize: size / 4}
+    text: {color: colors.white, fontSize: size / 3.5}
 });
