@@ -8,7 +8,7 @@ import { ProgressBar } from "react-native-paper"
 import {Timing} from './Timing'
 import {useKeepAwake} from 'expo-keep-awake'
 
-const DEFAULT_TIME = 0.1;
+const DEFAULT_TIME = 0.5;
 
 export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
   useKeepAwake()
@@ -35,14 +35,16 @@ export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
 
   const changeTime = (minutes, title) => {
 
-    if(minutes <= 1 && title === '-') {
+    if(minutes <= 0.5 && title === '-') {
       alert('Error: Minutes cannot be 0')
       return;
     }
    
+    
+    title === '+' ? setMinutes(minutes + 0.5) : setMinutes(minutes - 0.5
+      )
     setProgress(1)
     setIsStarted(false)
-    title === '+' ? setMinutes(minutes + 0.5) : setMinutes(minutes - 1)
     
   }
 
@@ -79,7 +81,7 @@ export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
       </View>
 
       <View style={styles.clearSubject}>
-         <RoundedButton title="x" size={50} onPress={() => clearSubject()} />   
+         <RoundedButton title="X" textStyle={{fontWeight: 'bold'}} size={50} onPress={() => clearSubject()} />   
       </View>
     </View>
   )

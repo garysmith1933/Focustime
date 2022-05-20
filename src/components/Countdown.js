@@ -20,9 +20,9 @@ export const Countdown = ({
   //literally the countdown functionally
   const countDown = () => {
     setMillis((time) => {
-      if(time <= 0) {
-        clearInterval(interval.current);
+      if(time === 0) {
         onEnd();
+        clearInterval(interval.current);
         return time;
       }
       const timeLeft = time - 1000
@@ -54,6 +54,8 @@ useEffect(() => {
 
   return () => clearInterval(interval.current)
 }, [isPaused])
+
+//passing interval to that one function and then clearing it from there?
 
   const minute = Math.floor(millis / 1000 / 60) % 60;
   const seconds = Math.floor(millis / 1000) % 60;
