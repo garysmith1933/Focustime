@@ -94,6 +94,6 @@ export const Focustime = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBlue
+    backgroundColor: colors.darkPurple
   }
 });

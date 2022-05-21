@@ -1,30 +1,61 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Image, Button} from 'react-native';
 import {colors} from '../Utils/colors'
 import {spacing, fontSizes} from '../Utils/sizes';
 
 export const Home = ({navigation}) => {
+  const focus = require("../../assets/Focused.png")
+  const affirm = require("../../assets/Heart.png")
+
+  const current = new Date()
+  const currentHour = current.getHours()
+
+  const Greeting = () => {
+    switch (currentHour) {
+      case currentHour >= 6 && currentHour < 12 :
+        return 'Morning!'
+        break;
+
+        case currentHour >= 12 && currentHour < 17 :
+          return 'Afternoon!'
+          break;
+
+          default: return 'Evening!'
+    }
+  }
+
+
   return (
   
       <View style={styles.container}> 
 
         <View style={styles.titleContainer}>
-          <Text style={styles.text}>Good morning!</Text>
-          <Text style={{color: colors.white, fontSize: fontSizes.md, paddingTop: spacing.sm}}> What would you like to do today? </Text>
+          <Text style={styles.text}>Good {Greeting()}</Text>
+          <Text style={{color: colors.white, fontSize: fontSizes.md, paddingTop: spacing.sm, fontWeight: 'bold'}}> What would you like to do today? </Text>
         </View>
 
             <View style={styles.optionContainer}> 
             <ScrollView horizontal={true} pagingEnabled={true} style={{marginLeft: spacing.sm, marginRight: spacing.sm}}>
                 <View style={styles.focus}> 
-                  <TouchableOpacity onPress={()=> navigation.navigate('Focus')}>
-                    <Text style={styles.categories}> Focus Time </Text> 
-                  </TouchableOpacity>   
+                  <Image source={focus} style={{height: 100, width: 300, flex: 1, alignSelf:'center'}}/>
+                  <Text style={styles.categories}>Focus Time</Text> 
+                  <Text style={{marginBottom: 30, fontSize: 18}}>A new way of getting tasks done</Text> 
+
+                  <TouchableOpacity style={styles.focusButton} onPress={()=> navigation.navigate("Focus")}>
+                  <Text style={{fontWeight: 'bold'}}>Focus</Text>
+                  </TouchableOpacity>
+               
                 </View> 
              
             <View style={styles.affirmation}> 
-              <TouchableOpacity onPress={()=> navigation.navigate("Affirmations")}>
-                <Text style={styles.categories}>Affirmation Time</Text> 
+              <Image source={affirm} style={{height: 100, width: 300, flex: 1, alignSelf:'center'}}/>
+              <Text style={styles.categories}>Affirmation Time</Text> 
+              <Text style={{marginBottom: 30, fontSize: 18}}>Take time to love yourself</Text> 
+
+              <TouchableOpacity style={styles.affirmButton} onPress={()=> navigation.navigate("Affirmations")}>
+                <Text style={{fontWeight: 'bold'}}>Affirm</Text>
               </TouchableOpacity>
+               
             </View> 
       
             </ScrollView>
@@ -43,7 +74,8 @@ const styles = StyleSheet.create({
 
   text: {
     color: colors.white,
-    fontSize: fontSizes.xl
+    fontSize: fontSizes.xl,
+    fontWeight: 'bold'
   },
 
   titleContainer: {
@@ -55,41 +87,63 @@ const styles = StyleSheet.create({
   },
 
   categories: {
-    fontSize: fontSizes.xxl, 
+    fontSize: fontSizes.xl, 
     fontWeight: 'bold',
-    color: 'black'
+    color: 'black',
   },
 
   focus: {
-    backgroundColor: "#A6B1E1", 
+    backgroundColor: colors.white, 
     borderRadius: 10, 
     padding: spacing.sm, 
     height: 400, 
     width: 330, 
     marginRight: 15, 
     marginLeft: 8, 
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   },
 
   affirmation: {
-    backgroundColor: '#DCD6F7', 
+    backgroundColor: colors.white, 
     borderRadius: 10, 
     marginBottom: spacing.xxl, 
     padding: spacing.sm, 
     height: 400, 
     width: 330, 
     marginRight: 15,
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   },
 
-  planning: {
-    backgroundColor: "#F4EEFF", 
-    borderRadius: 10,
-     padding: spacing.sm, 
-     height: 400, 
-     width: 330, 
-     marginRight: 8,
-     justifyContent: 'flex-end'
+  focusButton: {
+    backgroundColor: "#bcc8fd",
+    width: '35%',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    height: 45,
+    position: 'absolute',
+    top: 380
+  },
+
+  affirmButton: {
+    backgroundColor: colors.lightPink,
+    width: '35%',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    height: 45,
+    position: 'absolute',
+    top: 380
   }
+
+  
+
+
+
+
 });
 
