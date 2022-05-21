@@ -11,16 +11,17 @@ export const Home = ({navigation}) => {
   const currentHour = current.getHours()
 
   const Greeting = () => {
-    switch (currentHour) {
-      case currentHour >= 6 && currentHour < 12 :
+    console.log(currentHour)
+    if (currentHour >= 6 && currentHour < 12) {
         return 'Morning!'
-        break;
+    }
 
-        case currentHour >= 12 && currentHour < 17 :
-          return 'Afternoon!'
-          break;
+    else if (currentHour >= 12 && currentHour < 17) {
+      return 'Morning!'
+    }
 
-          default: return 'Evening!'
+     else {
+      return 'Evening!'
     }
   }
 
@@ -42,7 +43,7 @@ export const Home = ({navigation}) => {
                   <Text style={{marginBottom: 30, fontSize: 18}}>Its time to get your tasks done!</Text> 
 
                   <TouchableOpacity style={styles.focusButton} onPress={()=> navigation.navigate("Focus")}>
-                  <Text style={{fontWeight: 'bold'}}>Focus</Text>
+                  <Text style={{fontWeight: 'bold'}}>Start</Text>
                   </TouchableOpacity>
                
                 </View> 
@@ -53,7 +54,7 @@ export const Home = ({navigation}) => {
               <Text style={{marginBottom: 30, fontSize: 18}}>Always make time to love yourself!</Text> 
 
               <TouchableOpacity style={styles.affirmButton} onPress={()=> navigation.navigate("Affirmations")}>
-                <Text style={{fontWeight: 'bold'}}>Affirm</Text>
+                <Text style={{fontWeight: 'bold'}}>Start</Text>
               </TouchableOpacity>
                
             </View> 
