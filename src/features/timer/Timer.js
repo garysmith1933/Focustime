@@ -9,7 +9,7 @@ import {Timing} from './Timing'
 import {useKeepAwake} from 'expo-keep-awake'
 
 //0.1 is 6 seconds, 0.5 is 30
-const DEFAULT_TIME = 0.5;
+const DEFAULT_TIME = 0.1;
 
 export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
   useKeepAwake()
@@ -37,7 +37,7 @@ export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
   const changeTime = (minutes, title) => {
 
     if(minutes <= 0.5 && title === '-') {
-      alert('Error: Minutes cannot be 0')
+      alert('Error: Timer cannot be 0')
       return;
     }
    
@@ -64,7 +64,7 @@ export const Timer = ({focusSubject, onTimerEnd, clearSubject}) => {
       <View style={{paddingTop: spacing.sm}}>
         <ProgressBar 
         progress={progress}
-        color='#5E84E2' 
+        color={colors.lightPurple}
         style={{height: 10}}
         />
       </View>

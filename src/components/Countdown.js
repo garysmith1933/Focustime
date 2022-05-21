@@ -20,7 +20,7 @@ export const Countdown = ({
   //literally the countdown functionally
   const countDown = () => {
     setMillis((time) => {
-      if(time === 0) {
+      if(time < 1) {
         onEnd();
         clearInterval(interval.current);
         return time;
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.white,
     padding: spacing.lg,
-    backgroundColor: 'rgba(94, 132, 226, 0.3)'
+    backgroundColor: "#959fcb",
+    borderRadius: 10
   }
 })

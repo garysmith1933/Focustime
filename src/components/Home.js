@@ -31,7 +31,7 @@ export const Home = ({navigation}) => {
 
         <View style={styles.titleContainer}>
           <Text style={styles.text}>Good {Greeting()}</Text>
-          <Text style={{color: colors.white, fontSize: fontSizes.md, paddingTop: spacing.sm, fontWeight: 'bold'}}> What would you like to do today? </Text>
+          <Text style={{color: colors.white, fontSize: fontSizes.md, paddingTop: spacing.sm}}> What would you like to do today? </Text>
         </View>
 
             <View style={styles.optionContainer}> 
@@ -39,7 +39,7 @@ export const Home = ({navigation}) => {
                 <View style={styles.focus}> 
                   <Image source={focus} style={{height: 100, width: 300, flex: 1, alignSelf:'center'}}/>
                   <Text style={styles.categories}>Focus Time</Text> 
-                  <Text style={{marginBottom: 30, fontSize: 18}}>A new way of getting tasks done</Text> 
+                  <Text style={{marginBottom: 30, fontSize: 18}}>Its time to get your tasks done!</Text> 
 
                   <TouchableOpacity style={styles.focusButton} onPress={()=> navigation.navigate("Focus")}>
                   <Text style={{fontWeight: 'bold'}}>Focus</Text>
@@ -50,7 +50,7 @@ export const Home = ({navigation}) => {
             <View style={styles.affirmation}> 
               <Image source={affirm} style={{height: 100, width: 300, flex: 1, alignSelf:'center'}}/>
               <Text style={styles.categories}>Affirmation Time</Text> 
-              <Text style={{marginBottom: 30, fontSize: 18}}>Take time to love yourself</Text> 
+              <Text style={{marginBottom: 30, fontSize: 18}}>Always make time to love yourself!</Text> 
 
               <TouchableOpacity style={styles.affirmButton} onPress={()=> navigation.navigate("Affirmations")}>
                 <Text style={{fontWeight: 'bold'}}>Affirm</Text>

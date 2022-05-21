@@ -11,7 +11,7 @@ export const Focus = ( { addSubject }) =>  {
     <View style={styles.container}>
    
       <View style={styles.innerContainer}> 
-      <Text style={{fontSize: 28, color: colors.white, marginBottom: 16}}>Focus Time</Text>
+      <Text style={{fontSize: 28, color: colors.white, marginBottom: 16, fontWeight: 'bold'}}>Focus Time</Text>
         <Text style={styles.title}>What would you like to focus on? </Text> 
         
         <View style={styles.inputContainer}>
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
 
   title: {
     color: colors.white,
-    fontWeight: 'bold',
     fontSize: 20
   },
 
